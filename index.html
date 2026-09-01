@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wayfarer — Your Global Trip Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0E2233;
+    --navy-deep: #081522;
+    --parchment: #EDE6D6;
+    --parchment-dim: #DED4BC;
+    --stamp: #FF5A36;
+    --stamp-dark: #D8431F;
+    --ink: #1B2A33;
+    --gold: #FFB238;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(201,162,93,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(178,58,46,0.10) 0%, transparent 45%);
+    font-family: 'Public Sans', sans-serif;
+    color: var(--parchment);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  header{
+    margin-bottom: 32px;
+  }
+  .kicker{
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    margin: 0 0 6px;
+  }
+  .title-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 14px;
+  }
+  .globe{
+    font-size: 38px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 10px rgba(255,90,54,0.35));
+  }
+  h1{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.02;
+    margin: 0;
+    background: linear-gradient(100deg, #FFB238 0%, #FF5A36 55%, #FF3D7F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header p{
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--parchment-dim);
+    margin: 0;
+    max-width: 40ch;
+  }
+  .journey{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 36px;
+  }
+  .ticket{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    background: var(--parchment);
+    border-radius: 14px;
+    display: flex;
+    align-items: stretch;
+    overflow: visible;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    transition: transform 0.15s ease;
+  }
+  .ticket:active{ transform: scale(0.985); }
+
+  .ticket-main{
+    flex: 1;
+    padding: 20px 18px;
+    position: relative;
+  }
+  .step-row{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .step-num{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .ticket-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ink);
+  }
+  .ticket-sub{
+    font-size: 13.5px;
+    color: #55524A;
+    margin: 0;
+    padding-left: 32px;
+  }
+  .ticket-stub{
+    width: 78px;
+    flex-shrink: 0;
+    border-left: 2px dashed #C9BFA6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--parchment);
+    border-radius: 0 14px 14px 0;
+  }
+  .ticket-stub::before, .ticket-stub::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--navy);
+    border-radius: 50%;
+    left: -10px;
+  }
+  .ticket-stub::before{ top: -9px; background: var(--navy); }
+  .ticket-stub::after{ bottom: -9px; background: var(--navy); }
+  .ticket-icon{
+    font-size: 26px;
+  }
+  .ticket.embassy .ticket-title, .ticket.embassy .step-num{
+    color: var(--navy-deep);
+  }
+  .ticket.embassy{
+    background: #E4DFCF;
+  }
+  .ticket.embassy .ticket-stub{ background: #E4DFCF; }
+  .ticket.embassy .step-num{ border-color: var(--navy-deep); }
+
+  footer{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(237,230,214,0.15);
+  }
+  footer p{
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: rgba(237,230,214,0.4);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">The world, one tap away</p>
+      <div class="title-row">
+        <span class="globe">🌍</span>
+        <h1>Wayfarer</h1>
+      </div>
+      <p>Flights, stays, food, data & coverage — book the whole trip in one place, in the order you'll actually need it.</p>
+    </header>
+
+    <div class="journey" id="journey"></div>
+
+    <footer>
+      <p>Wayfarer is an affiliate hub. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free.</p>
+    </footer>
+  </div>
+
+<script>
+  // ------------------------------------------------------------------
+  // CONFIG — replace YOUR_* placeholders with your own affiliate IDs.
+  // Each provider operates worldwide and pays affiliates via PayPal.
+  // ------------------------------------------------------------------
+  const STEPS = [
+    {
+      num: 1,
+      title: "Plan the trip",
+      sub: "Compare destinations & routes worldwide",
+      icon: "🧭",
+      url: "https://www.kayak.com/?a=YOUR_KAYAK_AFFILIATE_ID"
+    },
+    {
+      num: 2,
+      title: "Book the flight",
+      sub: "Global fare search, 60+ languages",
+      icon: "✈️",
+      url: "https://www.skyscanner.net/?associateid=YOUR_SKYSCANNER_ID"
+    },
+    {
+      num: 3,
+      title: "Reserve the stay",
+      sub: "Hotels worldwide, 3M+ properties",
+      icon: "🏨",
+      url: "https://www.booking.com/index.html?aid=YOUR_BOOKING_AID"
+    },
+    {
+      num: 4,
+      title: "Eat & drink",
+      sub: "Restaurants & bars, live tables",
+      icon: "🍽️",
+      url: "https://www.thefork.com/?aid=YOUR_THEFORK_ID"
+    },
+    {
+      num: 5,
+      title: "Get connected",
+      sub: "eSIM data in 200+ countries",
+      icon: "📶",
+      url: "https://www.airalo.com/?ref=YOUR_AIRALO_ID"
+    },
+    {
+      num: 6,
+      title: "Protect the trip",
+      sub: "Medical & emergency travel insurance",
+      icon: "🛡️",
+      url: "https://safetywing.com/nomad-insurance/?referenceID=YOUR_SAFETYWING_ID"
+    },
+    {
+      num: 7,
+      title: "Find the embassy",
+      sub: "Emergency contacts, no affiliate link",
+      icon: "🏛️",
+      embassy: true,
+      url: "https://www.embassypages.com/"
+    }
+  ];
+
+  const journey = document.getElementById('journey');
+  STEPS.forEach(step => {
+    const a = document.createElement('a');
+    a.className = 'ticket' + (step.embassy ? ' embassy' : '');
+    a.href = step.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = `
+      <div class="ticket-main">
+        <div class="step-row">
+          <span class="step-num">${step.num}</span>
+          <span class="ticket-title">${step.title}</span>
+        </div>
+        <p class="ticket-sub">${step.sub}</p>
+      </div>
+      <div class="ticket-stub"><span class="ticket-icon">${step.icon}</span></div>
+    `;
+    journey.appendChild(a);
+  });
+</script>
+</body>
+</html>
