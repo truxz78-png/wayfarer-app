@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wayfarer — Your Global Trip Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0E2233;
+    --navy-deep: #081522;
+    --parchment: #EDE6D6;
+    --parchment-dim: #DED4BC;
+    --stamp: #FF5A36;
+    --stamp-dark: #D8431F;
+    --ink: #1B2A33;
+    --gold: #FFB238;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(201,162,93,0.10) 0%, transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(178,58,46,0.10) 0%, transparent 45%);
+    font-family: 'Public Sans', sans-serif;
+    color: var(--parchment);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  header{
+    margin-bottom: 32px;
+  }
+  .kicker{
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    margin: 0 0 6px;
+  }
+  .title-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 14px;
+  }
+  .globe{
+    font-size: 38px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 10px rgba(255,90,54,0.35));
+  }
+  h1{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.02;
+    margin: 0;
+    background: linear-gradient(100deg, #FFB238 0%, #FF5A36 55%, #FF3D7F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header p{
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--parchment-dim);
+    margin: 0;
+    max-width: 40ch;
+  }
+  .journey{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 36px;
+  }
+  .ticket{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    background: var(--parchment);
+    border-radius: 14px;
+    display: flex;
+    align-items: stretch;
+    overflow: visible;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    transition: transform 0.15s ease;
+  }
+  .ticket:active{ transform: scale(0.985); }
+
+  .ticket-main{
+    flex: 1;
+    padding: 20px 18px;
+    position: relative;
+  }
+  .step-row{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .step-num{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--stamp);
+    border: 1.5px solid var(--stamp);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .ticket-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ink);
+  }
+  .ticket-sub{
+    font-size: 13.5px;
+    color: #55524A;
+    margin: 0;
+    padding-left: 32px;
+  }
+  .ticket-stub{
+    width: 78px;
+    flex-shrink: 0;
+    border-left: 2px dashed #C9BFA6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--parchment);
+    border-radius: 0 14px 14px 0;
+  }
+  .ticket-stub::before, .ticket-stub::after{
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--navy);
+    border-radius: 50%;
+    left: -10px;
+  }
+  .ticket-stub::before{ top: -9px; background: var(--navy); }
+  .ticket-stub::after{ bottom: -9px; background: var(--navy); }
+  .ticket-icon{
+    font-size: 26px;
+  }
+  .ticket.embassy .ticket-title, .ticket.embassy .step-num{
+    color: var(--navy-deep);
+  }
+  .ticket.embassy{
+    background: #E4DFCF;
+  }
+  .ticket.embassy .ticket-stub{ background: #E4DFCF; }
+  .ticket.embassy .step-num{ border-color: var(--navy-deep); }
+
+  footer{
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(237,230,214,0.15);
+  }
+  footer p{
+    font-size: 10.5px;
+    line-height: 1.5;
+    color: rgba(237,230,214,0.4);
+    margin: 0;
+  }
+  .guides{
+    margin-top: 0;
+  }
+  .guides h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #FBF8F0;
+    margin: 0 0 6px;
+  }
+  .guides-intro{
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--parchment-dim);
+    margin: 0 0 24px;
+  }
+  .guide-article{
+    margin-bottom: 26px;
+  }
+  .guide-article h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 16.5px;
+    color: var(--gold);
+    margin: 0 0 6px;
+  }
+  .guide-article p{
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--parchment-dim);
+    margin: 0;
+  }
+  .inline-hotel-link{
+    color: var(--gold);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .section-divider{
+    margin: 44px 0 28px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(237,230,214,0.15);
+  }
+  .quickbook-intro{
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--parchment-dim);
+    margin: 0 0 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Travel guides & booking tools</p>
+      <div class="title-row">
+        <span class="globe">🌍</span>
+        <h1>Wayfarer</h1>
+      </div>
+      <p>Real destination guides and trip-prep tips, with the booking tools you need built right in.</p>
+    </header>
+
+    <div class="guides">
+      <h2>Where to stay: destination guides</h2>
+      <p class="guides-intro">Neighborhood-level advice for picking the right base — plus how to compare live prices before you book.</p>
+
+      <div class="guide-article">
+        <h3>Where to stay in Lisbon: a neighborhood guide</h3>
+        <p>Alfama wins for atmosphere — narrow lanes, fado music drifting from doorways, and the castle overhead — but its hills are steep and the cobblestones are rough on wheeled luggage. Baixa is flatter and more central, walking distance to the river and the main squares, which makes it the easiest first-timer base. Príncipe Real suits a longer stay: leafy, full of independent cafés, and a short tram ride from everything else. Whichever area you pick, <a class="inline-hotel-link" href="#" data-hotel-link>compare live hotel prices for Lisbon here</a> before locking in a date — rates swing a lot between weekdays and weekends in this city.</p>
+      </div>
+
+      <div class="guide-article">
+        <h3>Hotels vs. Airbnb in Tokyo: which one wins</h3>
+        <p>Tokyo hotels are famous for making the most of very little space — expect a smaller room but excellent service, daily housekeeping, and a front desk that can solve almost any problem in seconds. An apartment rental makes more sense if you're staying over five nights, traveling with a group, or want a kitchen and laundry. For short stays near the main train lines, a hotel usually works out similarly priced once you factor in Airbnb service fees. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Tokyo here</a> and check the walking distance to the nearest JR line before booking.</p>
+      </div>
+
+      <div class="guide-article">
+        <h3>Best areas to stay in Bangkok on a budget</h3>
+        <p>Sukhumvit is the safe default — packed with mid-range hotels, connected to the BTS Skytrain, and walkable to food at almost any hour. Silom is quieter during the day and comes alive at night, with easy access to the river ferries for temple-hopping. Avoid booking anywhere without checking its distance to a Skytrain or MRT station first — Bangkok traffic can turn a short trip into an hour-long ordeal. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Bangkok here</a> and filter by proximity to the nearest station.</p>
+      </div>
+
+      <div class="guide-article">
+        <h3>Where to stay in Mexico City for first-timers</h3>
+        <p>Roma Norte and Condesa are the two neighborhoods everyone recommends, and for good reason — tree-lined streets, strong coffee shops, and a short walk to most of the city's best restaurants. Polanco is more upscale and quieter, with easy access to Chapultepec Park. Both areas sit well above the noisier, more traffic-heavy parts of the city. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Mexico City here</a> before you commit to a neighborhood.</p>
+      </div>
+
+      <div class="guide-article">
+        <h3>The best time — and place — to book a stay in Rome</h3>
+        <p>Prices in Rome swing hard by season: April, May, September, and October give you good weather without peak summer rates or crowds. For location, staying near Termini station is convenient for trains but louder at night; the area around Campo de' Fiori or Trastevere trades a bit of convenience for a much better evening atmosphere. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Rome here</a> across a few different dates — even shifting your trip by a few days can change the rate significantly.</p>
+      </div>
+    </div>
+
+    <div class="guides section-divider">
+      <h2>Trip prep essentials</h2>
+      <div class="guide-article">
+        <h3>How to pack light for any trip</h3>
+        <p>One carry-on, one packing cube system, done. Lay out everything you think you need, then remove a third of it — you'll still overpack. Stick to a neutral color palette so every top works with every bottom, and wear your bulkiest shoes and jacket on travel day instead of packing them. Roll, don't fold, and leave a gap for what you'll inevitably buy along the way.</p>
+      </div>
+      <div class="guide-article">
+        <h3>5 things to check before flying international</h3>
+        <p>Passport validity (most countries want 6 months left), visa requirements for your specific nationality, any required vaccinations, your airline's baggage rules for international legs, and whether your phone plan works abroad or you'll need a local eSIM on arrival. A five-minute check now saves a very bad day at the airport.</p>
+      </div>
+      <div class="guide-article">
+        <h3>The real cost of skipping travel insurance</h3>
+        <p>A single ER visit abroad can run into the thousands, and a missed connection or a canceled tour can erase what you saved by skipping coverage. Good travel insurance is usually a small fraction of your total trip cost — it's the one line item that protects everything else you've already paid for.</p>
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick book</h2>
+      <p class="quickbook-intro">Already know what you need? Jump straight to booking, in the order most trips need it.</p>
+      <div class="journey" id="journey" style="margin-top:24px;"></div>
+    </div>
+
+    <footer>
+      <p>Wayfarer is an affiliate hub. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free.</p>
+    </footer>
+  </div>
+
+<script>
+  // ------------------------------------------------------------------
+  // CONFIG — replace YOUR_* placeholders with your own affiliate IDs.
+  // Each provider operates worldwide and pays affiliates via PayPal.
+  // ------------------------------------------------------------------
+  const STEPS = [
+    {
+      num: 1,
+      title: "Plan the trip",
+      sub: "Compare destinations & routes worldwide",
+      icon: "🧭",
+      // Stay22 Allez link (Kayak, via Stay22) — live link
+      url: "https://kayak.stay22.com/wayfarer/Q1-34cILRy"
+    },
+    {
+      num: 2,
+      title: "Book the flight",
+      sub: "Global fare search, 60+ languages",
+      icon: "✈️",
+      // Aviasales affiliate via Travelpayouts — live link
+      url: "https://aviasales.tpx.lu/ziTiexVw"
+    },
+    {
+      num: 3,
+      title: "Reserve the stay",
+      sub: "Hotels worldwide, 3M+ properties",
+      icon: "🏨",
+      // Stay22 Allez link (Booking.com, via Stay22) — live link
+      url: "https://booking.stay22.com/wayfarer/kQplpJhK-1"
+    },
+    {
+      num: 4,
+      title: "Explore & taste",
+      sub: "Guided tours, food walks & experiences",
+      icon: "🍽️",
+      // WeGoTrip affiliate via Travelpayouts — live link
+      url: "https://wegotrip.tpx.lu/pARJRvWI"
+    },
+    {
+      num: 5,
+      title: "Get connected",
+      sub: "eSIM data in 200+ countries",
+      icon: "📶",
+      // Airalo affiliate via Travelpayouts — live link
+      url: "https://airalo.tpx.lu/1ZoNqig8"
+    },
+    {
+      num: 6,
+      title: "Protect the trip",
+      sub: "Medical & emergency travel insurance",
+      icon: "🛡️",
+      // SafetyWing Ambassador — live link
+      url: "https://safetywing.com/nomad-insurance?referenceID=26592172&utm_source=26592172&utm_medium=Ambassador"
+    },
+    {
+      num: 7,
+      title: "Find the embassy",
+      sub: "Emergency contacts, no affiliate link",
+      icon: "🏛️",
+      embassy: true,
+      url: "https://www.embassypages.com/"
+    }
+  ];
+
+  const journey = document.getElementById('journey');
+  STEPS.forEach(step => {
+    const a = document.createElement('a');
+    a.className = 'ticket' + (step.embassy ? ' embassy' : '');
+    a.href = step.url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.innerHTML = `
+      <div class="ticket-main">
+        <div class="step-row">
+          <span class="step-num">${step.num}</span>
+          <span class="ticket-title">${step.title}</span>
+        </div>
+        <p class="ticket-sub">${step.sub}</p>
+      </div>
+      <div class="ticket-stub"><span class="ticket-icon">${step.icon}</span></div>
+    `;
+    journey.appendChild(a);
+  });
+
+  // Point every inline "compare hotel prices" link in the guide articles
+  // to the same URL as the hotel button (#3), so updating one link updates both.
+  const hotelStep = STEPS.find(s => s.num === 3);
+  if (hotelStep) {
+    document.querySelectorAll('[data-hotel-link]').forEach(link => {
+      link.href = hotelStep.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    });
+  }
+</script>
+</body>
+</html>
