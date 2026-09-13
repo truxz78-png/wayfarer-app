@@ -1,0 +1,20 @@
+{
+  "name": "Wayfarer",
+  "short_name": "Wayfarer",
+  "start_url": "/wayfarer-app/",
+  "display": "standalone",
+  "background_color": "#1D3A5C",
+  "theme_color": "#1D3A5C",
+  "icons": [
+    {
+      "src": "/wayfarer-app/icon-192-1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/wayfarer-app/icon-512-1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
