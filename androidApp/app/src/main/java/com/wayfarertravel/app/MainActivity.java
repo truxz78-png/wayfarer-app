@@ -1,4 +1,4 @@
-package com.wayfarer.app;
+package com.wayfarertravel.app;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
