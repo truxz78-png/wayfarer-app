@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wayfarer</title>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1d3a5c;color:#fff;font-family:sans-serif;text-align:center}
+a{color:#f2c14e;font-size:20px}
+</style>
+</head>
+<body>
+<div>
+<h1>Wayfarer</h1>
+<p>Opening your travel helper...</p>
+<p><a id="link" href="#">Tap here if nothing happens</a></p>
+</div>
+<script>
+// CAMBIAR SOLO ESTA LINEA cuando Google apruebe la app
+var DESTINO = "https://truxz78-png.github.io/wayfarer-app/";
+document.getElementById("link").href = DESTINO;
+window.location.replace(DESTINO);
+</script>
+</body>
+</html>
