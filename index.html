@@ -83,7 +83,6 @@
     margin-top: 36px;
   }
   .ticket{
-    display: block;
     text-decoration: none;
     color: inherit;
     position: relative;
@@ -96,6 +95,7 @@
     transition: transform 0.15s ease;
   }
   .ticket:active{ transform: scale(0.985); }
+  .ticket:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; }
 
   .ticket-main{
     flex: 1;
@@ -134,6 +134,12 @@
     margin: 0;
     padding-left: 32px;
   }
+  .ticket-ext{
+    font-size: 11px;
+    color: #6E6A60;
+    margin: 6px 0 0;
+    padding-left: 32px;
+  }
   .ticket-stub{
     width: 78px;
     flex-shrink: 0;
@@ -154,8 +160,8 @@
     border-radius: 50%;
     left: -10px;
   }
-  .ticket-stub::before{ top: -9px; background: var(--navy); }
-  .ticket-stub::after{ bottom: -9px; background: var(--navy); }
+  .ticket-stub::before{ top: -9px; }
+  .ticket-stub::after{ bottom: -9px; }
   .ticket-icon{
     font-size: 26px;
   }
@@ -168,17 +174,80 @@
   .ticket.embassy .ticket-stub{ background: #E4DFCF; }
   .ticket.embassy .step-num{ border-color: var(--navy-deep); }
 
+  .disclosure{
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--parchment);
+    background: rgba(255,178,56,0.10);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin: 14px 0 0;
+  }
+  .disclosure summary{
+    cursor: pointer;
+    list-style: none;
+  }
+  .disclosure summary::-webkit-details-marker{ display:none; }
+  .disclosure .more{
+    color: var(--gold);
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .disclosure[open] .more{ display: none; }
+  .disclosure p{
+    margin: 8px 0 0;
+  }
+  .guides-note{
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--parchment-dim);
+    margin: -14px 0 24px;
+  }
+
   footer{
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid rgba(237,230,214,0.15);
   }
   footer p{
-    font-size: 10.5px;
+    font-size: 11.5px;
     line-height: 1.5;
-    color: rgba(237,230,214,0.4);
-    margin: 0;
+    color: rgba(237,230,214,0.7);
+    margin: 0 0 10px;
   }
+  footer a{
+    color: var(--gold);
+    text-decoration: underline;
+  }
+  .section-nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--navy);
+    margin: 0 -20px 28px;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(237,230,214,0.15);
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section-nav::-webkit-scrollbar{ display: none; }
+  .section-nav a{
+    flex-shrink: 0;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid rgba(255,178,56,0.45);
+    border-radius: 999px;
+    padding: 7px 14px;
+    white-space: nowrap;
+  }
+  .section-nav a:active{ background: rgba(255,178,56,0.15); }
+  .section-nav a:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  [id]{ scroll-margin-top: 70px; }
   .guides{
     margin-top: 0;
   }
@@ -296,40 +365,48 @@
         <span class="globe">🌍</span>
         <h1>Wayfarer</h1>
       </div>
-      <p>Real destination guides and trip-prep tips, with the booking tools you need built right in.</p>
+      <p>Real destination guides and trip-prep tips, with links to trusted booking partners.</p>
     </header>
 
-    <div class="guides">
+    <nav class="section-nav" aria-label="Sections">
+      <a href="#guides">Hotel guides</a>
+      <a href="#regions">By region</a>
+      <a href="#trip-prep">Trip prep</a>
+      <a href="#quick-book">Quick book</a>
+    </nav>
+
+    <div class="guides" id="guides">
       <h2>Where to stay: destination guides</h2>
-      <p class="guides-intro">Neighborhood-level advice for picking the right base — plus how to compare live prices before you book.</p>
+      <p class="guides-intro">Neighborhood-level advice for picking the right base — plus how to compare hotel prices before you book.</p>
+      <p class="guides-note">Hotel links in these guides open Booking.com (via our partner Stay22) in a new page. Type the city in the search box to see live prices. We may earn a commission if you book.</p>
 
       <details class="guide-article" id="lisbon-guide">
         <summary><h3>Where to stay in Lisbon: a neighborhood guide</h3></summary>
-        <p>Alfama wins for atmosphere — narrow lanes, fado music drifting from doorways, and the castle overhead — but its hills are steep and the cobblestones are rough on wheeled luggage. Baixa is flatter and more central, walking distance to the river and the main squares, which makes it the easiest first-timer base. Príncipe Real suits a longer stay: leafy, full of independent cafés, and a short tram ride from everything else. Whichever area you pick, <a class="inline-hotel-link" href="#" data-hotel-link>compare live hotel prices for Lisbon here</a> before locking in a date — rates swing a lot between weekdays and weekends in this city.</p>
+        <p>Alfama wins for atmosphere — narrow lanes, fado music drifting from doorways, and the castle overhead — but its hills are steep and the cobblestones are rough on wheeled luggage. Baixa is flatter and more central, walking distance to the river and the main squares, which makes it the easiest first-timer base. Príncipe Real suits a longer stay: leafy, full of independent cafés, and a short tram ride from everything else. Whichever area you pick, <a class="inline-hotel-link" href="#" data-hotel-link>search hotels in Lisbon on Booking.com</a> and compare a few dates before booking — rates swing a lot between weekdays and weekends in this city.</p>
       </details>
 
       <details class="guide-article" id="tokyo-guide">
         <summary><h3>Hotels vs. Airbnb in Tokyo: which one wins</h3></summary>
-        <p>Tokyo hotels are famous for making the most of very little space — expect a smaller room but excellent service, daily housekeeping, and a front desk that can solve almost any problem in seconds. An apartment rental makes more sense if you're staying over five nights, traveling with a group, or want a kitchen and laundry. For short stays near the main train lines, a hotel usually works out similarly priced once you factor in Airbnb service fees. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Tokyo here</a> and check the walking distance to the nearest JR line before booking.</p>
+        <p>Tokyo hotels are famous for making the most of very little space — expect a smaller room but excellent service, daily housekeeping, and a front desk that can solve almost any problem in seconds. An apartment rental makes more sense if you're staying over five nights, traveling with a group, or want a kitchen and laundry. For short stays near the main train lines, a hotel often ends up similarly priced once you factor in rental service fees. <a class="inline-hotel-link" href="#" data-hotel-link>Search hotels in Tokyo on Booking.com</a> and check the walking distance to the nearest JR line before booking.</p>
       </details>
 
       <details class="guide-article" id="bangkok-guide">
         <summary><h3>Best areas to stay in Bangkok on a budget</h3></summary>
-        <p>Sukhumvit is the safe default — packed with mid-range hotels, connected to the BTS Skytrain, and walkable to food at almost any hour. Silom is quieter during the day and comes alive at night, with easy access to the river ferries for temple-hopping. Avoid booking anywhere without checking its distance to a Skytrain or MRT station first — Bangkok traffic can turn a short trip into an hour-long ordeal. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Bangkok here</a> and filter by proximity to the nearest station.</p>
+        <p>Sukhumvit is the safe default — packed with mid-range hotels, connected to the BTS Skytrain, and walkable to food at almost any hour. Silom is quieter during the day and comes alive at night, with easy access to the river ferries for temple-hopping. Avoid booking anywhere without checking its distance to a Skytrain or MRT station first — Bangkok traffic can turn a short trip into an hour-long ordeal. <a class="inline-hotel-link" href="#" data-hotel-link>Search hotels in Bangkok on Booking.com</a> and check how close each one is to the nearest station.</p>
       </details>
 
-      <details class="guide-article">
+      <details class="guide-article" id="mexico-city-guide">
         <summary><h3>Where to stay in Mexico City for first-timers</h3></summary>
-        <p>Roma Norte and Condesa are the two neighborhoods everyone recommends, and for good reason — tree-lined streets, strong coffee shops, and a short walk to most of the city's best restaurants. Polanco is more upscale and quieter, with easy access to Chapultepec Park. Both areas sit well above the noisier, more traffic-heavy parts of the city. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Mexico City here</a> before you commit to a neighborhood.</p>
+        <p>Roma Norte and Condesa are the two neighborhoods everyone recommends, and for good reason — tree-lined streets, strong coffee shops, and a short walk to many of the city's best restaurants. Polanco is more upscale and quieter, with easy access to Chapultepec Park. All three feel calmer than the busier, more traffic-heavy parts of the city. <a class="inline-hotel-link" href="#" data-hotel-link>Search hotels in Mexico City on Booking.com</a> before you commit to a neighborhood.</p>
       </details>
 
       <details class="guide-article" id="rome-guide">
         <summary><h3>The best time — and place — to book a stay in Rome</h3></summary>
-        <p>Prices in Rome swing hard by season: April, May, September, and October give you good weather without peak summer rates or crowds. For location, staying near Termini station is convenient for trains but louder at night; the area around Campo de' Fiori or Trastevere trades a bit of convenience for a much better evening atmosphere. <a class="inline-hotel-link" href="#" data-hotel-link>Compare hotel prices for Rome here</a> across a few different dates — even shifting your trip by a few days can change the rate significantly.</p>
+        <p>Prices in Rome swing hard by season: April, May, September, and October give you good weather without peak summer rates or crowds. For location, staying near Termini station is convenient for trains but louder at night; the area around Campo de' Fiori or Trastevere trades a bit of convenience for a much better evening atmosphere. <a class="inline-hotel-link" href="#" data-hotel-link>Search hotels in Rome on Booking.com</a> across a few different dates — even shifting your trip by a few days can change the rate significantly.</p>
       </details>
     </div>
 
-    <details class="region-accordion">
+    <details class="region-accordion" id="regions">
       <summary>Traveling by region: what to know</summary>
       <div class="region-block">
         <h4>North America</h4>
@@ -349,7 +426,7 @@
       </div>
     </details>
 
-    <div class="guides section-divider">
+    <div class="guides section-divider" id="trip-prep">
       <h2>Trip prep essentials</h2>
       <details class="guide-article">
         <summary><h3>How to pack light for any trip</h3></summary>
@@ -357,7 +434,7 @@
       </details>
       <details class="guide-article">
         <summary><h3>5 things to check before flying international</h3></summary>
-        <p>Passport validity (most countries want 6 months left), visa requirements for your specific nationality, any required vaccinations, your airline's baggage rules for international legs, and whether your phone plan works abroad or you'll need a local eSIM on arrival. A five-minute check now saves a very bad day at the airport.</p>
+        <p>Passport validity (many countries want 6 months left), visa requirements for your specific nationality, any required vaccinations, your airline's baggage rules for international legs, and whether your phone plan works abroad or you'll need a local eSIM on arrival. A five-minute check now saves a very bad day at the airport.</p>
       </details>
       <details class="guide-article">
         <summary><h3>The real cost of skipping travel insurance</h3></summary>
@@ -365,75 +442,71 @@
       </details>
     </div>
 
-    <div class="section-divider">
+    <div class="section-divider" id="quick-book">
       <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick book</h2>
-      <p class="quickbook-intro">Already know what you need? Jump straight to booking, in the order most trips need it.</p>
+      <p class="quickbook-intro">Already know what you need? Jump straight to our partners, in the order most trips need it.</p>
+      <details class="disclosure">
+        <summary>Links 1–6 are affiliate links. <span class="more">About these links</span></summary>
+        <p>Each button opens a partner's website. Wayfarer does not sell anything itself — bookings, prices, and customer support are handled by each partner. We may earn a small commission at no extra cost to you.</p>
+      </details>
       <div class="journey" id="journey" style="margin-top:24px;"></div>
     </div>
 
     <footer>
-      <p>Wayfarer is an affiliate hub. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free.</p>
+      <p>Wayfarer is an independent travel guide with affiliate links. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free. Partner names and trademarks belong to their owners; partners do not endorse Wayfarer.</p>
+      <p><a href="/wayfarer-app/privacy.html">Privacy policy</a></p>
     </footer>
   </div>
 
 <script>
-  // ------------------------------------------------------------------
-  // CONFIG — replace YOUR_* placeholders with your own affiliate IDs.
-  // Each provider operates worldwide and pays affiliates via PayPal.
-  // ------------------------------------------------------------------
+  // Quick book buttons. Each sub line describes what the partner site really shows.
   const STEPS = [
     {
       num: 1,
       title: "Plan the trip",
-      sub: "Compare destinations & routes worldwide",
+      sub: "Compare flight options across airlines on KAYAK",
       icon: "🧭",
-      // Stay22 Allez link (Kayak, via Stay22) — live link
       url: "https://kayak.stay22.com/wayfarer/Q1-34cILRy"
     },
     {
       num: 2,
       title: "Book the flight",
-      sub: "Global fare search, 60+ languages",
+      sub: "Search low fares worldwide on Aviasales",
       icon: "✈️",
-      // Aviasales affiliate via Travelpayouts — live link
       url: "https://aviasales.tpx.lu/ziTiexVw"
     },
     {
       num: 3,
       title: "Reserve the stay",
-      sub: "Hotels worldwide, 3M+ properties",
+      sub: "Search hotels and stays on Booking.com",
       icon: "🏨",
-      // Stay22 Allez link (Booking.com, via Stay22) — live link
       url: "https://booking.stay22.com/wayfarer/kQplpJhK-1"
     },
     {
       num: 4,
       title: "Explore & taste",
-      sub: "Guided tours, food walks & experiences",
+      sub: "Tours, audio guides and experiences on WeGoTrip",
       icon: "🍽️",
-      // WeGoTrip affiliate via Travelpayouts — live link
       url: "https://wegotrip.tpx.lu/pARJRvWI"
     },
     {
       num: 5,
       title: "Get connected",
-      sub: "eSIM data in 200+ countries",
+      sub: "Travel eSIM data plans on Airalo",
       icon: "📶",
-      // Airalo affiliate via Travelpayouts — live link
       url: "https://airalo.tpx.lu/1ZoNqig8"
     },
     {
       num: 6,
       title: "Protect the trip",
-      sub: "Medical & emergency travel insurance",
+      sub: "Medical and emergency travel insurance from SafetyWing",
       icon: "🛡️",
-      // SafetyWing Ambassador — live link
       url: "https://safetywing.com/nomad-insurance?referenceID=26592172&utm_source=26592172&utm_medium=Ambassador"
     },
     {
       num: 7,
       title: "Find the embassy",
-      sub: "Emergency contacts, no affiliate link",
+      sub: "Embassy and consulate directory (not an affiliate link)",
       icon: "🏛️",
       embassy: true,
       url: "https://www.embassypages.com/"
@@ -454,14 +527,14 @@
           <span class="ticket-title">${step.title}</span>
         </div>
         <p class="ticket-sub">${step.sub}</p>
+        <p class="ticket-ext">Opens partner site ↗</p>
       </div>
       <div class="ticket-stub"><span class="ticket-icon">${step.icon}</span></div>
     `;
     journey.appendChild(a);
   });
 
-  // Point every inline "compare hotel prices" link in the guide articles
-  // to the same URL as the hotel button (#3), so updating one link updates both.
+  // Every "search hotels" link in the guides uses the same URL as button #3.
   const hotelStep = STEPS.find(s => s.num === 3);
   if (hotelStep) {
     document.querySelectorAll('[data-hotel-link]').forEach(link => {
@@ -470,6 +543,20 @@
       link.rel = 'noopener noreferrer';
     });
   }
+</script>
+
+<script>
+  // In-page jumps: scroll smoothly and open the region section if needed.
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href').slice(1);
+      const target = id && document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      if (target.tagName === 'DETAILS') target.open = true;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 </script>
 
 <script>
