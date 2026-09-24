@@ -546,6 +546,19 @@
 </script>
 
 <script>
+  // Start every page load with all sections closed, even if the browser
+  // tries to restore an earlier state or the address ends in #something.
+  function closeAllSections(){
+    document.querySelectorAll('details[open]').forEach(d => d.open = false);
+  }
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  closeAllSections();
+  window.addEventListener('pageshow', e => { if (!e.persisted) closeAllSections(); });
+</script>
+
+<script>
   // In-page jumps: scroll smoothly and open the region section if needed.
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
