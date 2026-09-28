@@ -194,7 +194,9 @@
     text-decoration: underline;
     white-space: nowrap;
   }
-  .disclosure[open] .more{ display: none; }
+  .disclosure .more-open{ display: none; }
+  .disclosure[open] .more-closed{ display: none; }
+  .disclosure[open] .more-open{ display: inline; }
   .disclosure p{
     margin: 8px 0 0;
   }
@@ -246,6 +248,11 @@
     white-space: nowrap;
   }
   .section-nav a:active{ background: rgba(255,178,56,0.15); }
+  .section-nav a.active{
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy-deep);
+  }
   .section-nav a:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
   [id]{ scroll-margin-top: 70px; }
   .guides{
@@ -468,7 +475,7 @@
       <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick book</h2>
       <p class="quickbook-intro">Already know what you need? Jump straight to our partners, in the order most trips need it.</p>
       <details class="disclosure">
-        <summary>Links 1–6 are affiliate links. <span class="more">About these links</span></summary>
+        <summary>Links 1–6 are affiliate links. <span class="more more-closed">About these links</span><span class="more more-open">Hide</span></summary>
         <p>Each button opens a partner's website. Wayfarer does not sell anything itself — bookings, prices, and customer support are handled by each partner. We may earn a small commission at no extra cost to you.</p>
       </details>
       <div class="journey" id="journey" style="margin-top:24px;"></div>
@@ -476,7 +483,7 @@
 
     <footer>
       <p>Wayfarer is an independent travel guide with affiliate links. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free. Partner names and trademarks belong to their owners; partners do not endorse Wayfarer.</p>
-      <p><a href="/wayfarer-app/privacy.html">Privacy policy</a></p>
+      <p><a href="/wayfarer-app/privacy.html">Privacy policy</a> &nbsp;|&nbsp; <a href="mailto:hpind77@gmail.com?subject=Wayfarer%20app">Contact</a></p>
     </footer>
   </div>
 
@@ -592,6 +599,44 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+</script>
+
+<script>
+  // Highlight the section you are reading in the top bar.
+  // At the very bottom of the page, the last tab is marked.
+  (function(){
+    const nav = document.querySelector('.section-nav');
+    if (!nav) return;
+    const tabs = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const sections = tabs.map(t => document.getElementById(t.getAttribute('href').slice(1)));
+    function setActive(i){
+      tabs.forEach((t, n) => {
+        const on = n === i;
+        t.classList.toggle('active', on);
+        if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
+      });
+      const tab = tabs[i];
+      if (tab) {
+        const left = tab.offsetLeft - (nav.clientWidth - tab.offsetWidth) / 2;
+        nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+      }
+    }
+    function update(){
+      const doc = document.documentElement;
+      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) { setActive(tabs.length - 1); return; }
+      const line = nav.offsetHeight + 20;
+      let current = -1;
+      sections.forEach((sec, i) => { if (sec && sec.getBoundingClientRect().top <= line) current = i; });
+      setActive(current);
+    }
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    document.querySelectorAll('details').forEach(d => d.addEventListener('toggle', update));
+    update();
+  })();
 </script>
 
 <script>
