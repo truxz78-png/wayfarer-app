@@ -1,0 +1,668 @@
+{
+  "_info": "Wayfarer partner links. 'active' is the link the app uses (primary, backup or official). The weekly robot (tools/check_links.py) updates active, fails and last_check. Edit links here, never in index.html.",
+  "settings": {
+    "auto_switch": false,
+    "fails_to_switch": 2
+  },
+  "categories": [
+    {
+      "id": "flights",
+      "title": "Flights & airlines",
+      "intro": "Search engines that compare many airlines, plus airlines you can book directly."
+    },
+    {
+      "id": "claims",
+      "title": "Flight problems",
+      "intro": "Help when a flight is delayed, canceled or overbooked."
+    },
+    {
+      "id": "hotels",
+      "title": "More places to stay",
+      "intro": "Extra hotel search options and hotel memberships."
+    },
+    {
+      "id": "tours",
+      "title": "Tours, activities & attractions",
+      "intro": "Day trips, museums, theme parks and guided tours."
+    },
+    {
+      "id": "transfers",
+      "title": "Airport transfers",
+      "intro": "Pre-booked rides between the airport and your stay."
+    },
+    {
+      "id": "food",
+      "title": "Restaurants",
+      "intro": "Restaurant bookings and dining deals."
+    },
+    {
+      "id": "gear",
+      "title": "Travel gear",
+      "intro": "Useful things to pack for the road."
+    }
+  ],
+  "partners": [
+    {
+      "id": "kayak",
+      "name": "KAYAK",
+      "category": "quick",
+      "desc": "Compare flight options across airlines on KAYAK",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://kayak.stay22.com/wayfarer/Q1-34cILRy",
+        "backup": null,
+        "official": "https://www.kayak.com/"
+      },
+      "expect": [
+        "kayak"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 1,
+      "title": "Plan the trip",
+      "icon": "🧭"
+    },
+    {
+      "id": "aviasales",
+      "name": "Aviasales",
+      "category": "quick",
+      "desc": "Search low fares worldwide on Aviasales",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://aviasales.tpx.lu/ziTiexVw",
+        "backup": null,
+        "official": "https://www.aviasales.com/"
+      },
+      "expect": [
+        "aviasales"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 2,
+      "title": "Book the flight",
+      "icon": "✈️"
+    },
+    {
+      "id": "booking",
+      "name": "Booking.com",
+      "category": "quick",
+      "desc": "Search hotels and stays on Booking.com",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://booking.stay22.com/wayfarer/kQplpJhK-1",
+        "backup": null,
+        "official": "https://www.booking.com/"
+      },
+      "expect": [
+        "booking.com"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 3,
+      "title": "Reserve the stay",
+      "icon": "🏨"
+    },
+    {
+      "id": "wegotrip",
+      "name": "WeGoTrip",
+      "category": "quick",
+      "desc": "Tours, audio guides and experiences on WeGoTrip",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://wegotrip.tpx.lu/pARJRvWI",
+        "backup": null,
+        "official": "https://wegotrip.com/"
+      },
+      "expect": [
+        "wegotrip"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 4,
+      "title": "Explore & taste",
+      "icon": "🍽️"
+    },
+    {
+      "id": "airalo",
+      "name": "Airalo",
+      "category": "quick",
+      "desc": "Travel eSIM data plans on Airalo",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://airalo.tpx.lu/1ZoNqig8",
+        "backup": "https://invl.me/clo29zh",
+        "official": "https://www.airalo.com/"
+      },
+      "expect": [
+        "airalo"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 5,
+      "title": "Get connected",
+      "icon": "📶"
+    },
+    {
+      "id": "safetywing",
+      "name": "SafetyWing",
+      "category": "quick",
+      "desc": "Medical and emergency travel insurance from SafetyWing",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://safetywing.com/nomad-insurance?referenceID=26592172&utm_source=26592172&utm_medium=Ambassador",
+        "backup": null,
+        "official": "https://safetywing.com/nomad-insurance"
+      },
+      "expect": [
+        "safetywing"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 6,
+      "title": "Protect the trip",
+      "icon": "🛡️"
+    },
+    {
+      "id": "embassypages",
+      "name": "EmbassyPages",
+      "category": "quick",
+      "desc": "Embassy and consulate directory (not an affiliate link)",
+      "affiliate": false,
+      "enabled": true,
+      "links": {
+        "primary": "https://www.embassypages.com/",
+        "backup": null,
+        "official": null
+      },
+      "expect": [
+        "embassypages"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "quick": 7,
+      "title": "Find the embassy",
+      "icon": "🏛️"
+    },
+    {
+      "id": "kiwi",
+      "name": "Kiwi.com",
+      "category": "flights",
+      "desc": "Search and combine flights from many airlines on Kiwi.com",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo2f6p",
+        "backup": null,
+        "official": "https://www.kiwi.com/"
+      },
+      "expect": [
+        "kiwi.com"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "airpaz",
+      "name": "Airpaz",
+      "category": "flights",
+      "desc": "Search flights on Airpaz, with a focus on Asia",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo2ff7",
+        "backup": null,
+        "official": "https://www.airpaz.com/"
+      },
+      "expect": [
+        "airpaz"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "tiket",
+      "name": "Tiket.com",
+      "category": "flights",
+      "desc": "Flights and hotels in Asia, mainly Indonesia, on Tiket.com",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.app/clo3a2m",
+        "backup": null,
+        "official": "https://www.tiket.com/"
+      },
+      "expect": [
+        "tiket.com"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "cheapvuelos",
+      "name": "Cheapvuelos",
+      "category": "flights",
+      "desc": "Search flight deals on Cheapvuelos",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://yknhc.com/g/cmazc4pm8o6d70b4f456ce5f810ebf/",
+        "backup": null,
+        "official": null
+      },
+      "expect": [
+        "cheapvuelos"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "etihad",
+      "name": "Etihad Airways",
+      "category": "flights",
+      "desc": "Book Etihad Airways flights directly with the airline",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.us/clo2go6",
+        "backup": null,
+        "official": "https://www.etihad.com/"
+      },
+      "expect": [
+        "etihad"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore Airlines",
+      "category": "flights",
+      "desc": "Book Singapore Airlines flights directly with the airline",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo3a50",
+        "backup": null,
+        "official": "https://www.singaporeair.com/"
+      },
+      "expect": [
+        "singaporeair"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "eurowings",
+      "name": "Eurowings",
+      "category": "flights",
+      "desc": "Book Eurowings flights directly with the airline",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://codeaven.com/g/zrwntqeht46d70b4f4563cffcf918a/",
+        "backup": null,
+        "official": "https://www.eurowings.com/"
+      },
+      "expect": [
+        "eurowings"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "asaptickets",
+      "name": "ASAP Tickets",
+      "category": "flights",
+      "desc": "Flight bookings with ASAP Tickets",
+      "affiliate": true,
+      "enabled": false,
+      "links": {
+        "primary": "https://yknhc.com/g/lv8vbf9a4e6d70b4f456f5f67e30af/",
+        "backup": null,
+        "official": null
+      },
+      "expect": [
+        "asaptickets"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {},
+      "note": "On hold: tracking code not filled in. Ticket open with Admitad support."
+    },
+    {
+      "id": "compensair",
+      "name": "Compensair",
+      "category": "claims",
+      "desc": "Check if you can claim compensation for a delayed or canceled flight",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://dbnua.com/g/5k6m2qm7z56d70b4f45690465e1588/",
+        "backup": null,
+        "official": "https://www.compensair.com/"
+      },
+      "expect": [
+        "compensair"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "zenhotels",
+      "name": "ZenHotels",
+      "category": "hotels",
+      "desc": "Search hotels and apartments on ZenHotels",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.app/clo3a4i",
+        "backup": null,
+        "official": "https://www.zenhotels.com/"
+      },
+      "expect": [
+        "zenhotels"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "accorplus",
+      "name": "ALL Accor+",
+      "category": "hotels",
+      "desc": "Paid membership with discounts at Accor hotels",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo3a44",
+        "backup": null,
+        "official": "https://all.accor.com/"
+      },
+      "expect": [
+        "accor"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "klook",
+      "name": "Klook",
+      "category": "tours",
+      "desc": "Tours, activities and attraction tickets on Klook",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo3a32",
+        "backup": null,
+        "official": "https://www.klook.com/"
+      },
+      "expect": [
+        "klook"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "kkday",
+      "name": "KKday",
+      "category": "tours",
+      "desc": "Tours, activities and experiences on KKday",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo2f3z",
+        "backup": null,
+        "official": "https://www.kkday.com/"
+      },
+      "expect": [
+        "kkday"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "tiqets",
+      "name": "Tiqets",
+      "category": "tours",
+      "desc": "Museum and attraction tickets on Tiqets",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo3a4q",
+        "backup": null,
+        "official": "https://www.tiqets.com/"
+      },
+      "expect": [
+        "tiqets"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "raynatours",
+      "name": "Rayna Tours",
+      "category": "tours",
+      "desc": "Tours and activities in Dubai and the UAE on Rayna Tours",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://xpuvo.com/g/ofc53p8nis6d70b4f456e94db72a90/",
+        "backup": null,
+        "official": "https://www.raynatours.com/"
+      },
+      "expect": [
+        "raynatours"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "avitovip",
+      "name": "AvitoVIP",
+      "category": "transfers",
+      "desc": "Book airport transfers with AvitoVIP",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://kjuzv.com/g/02swkf5uv66d70b4f456babf13962c/",
+        "backup": null,
+        "official": null
+      },
+      "expect": [
+        "avito"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "hungryhub",
+      "name": "Hungry Hub",
+      "category": "food",
+      "desc": "Restaurant bookings and dining deals in Thailand on Hungry Hub",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://invl.me/clo2r1w",
+        "backup": null,
+        "official": "https://www.hungryhub.com/"
+      },
+      "expect": [
+        "hungryhub"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    },
+    {
+      "id": "sitpack",
+      "name": "Sitpack",
+      "category": "gear",
+      "desc": "Compact portable seats for travel and camping from Sitpack",
+      "affiliate": true,
+      "enabled": true,
+      "links": {
+        "primary": "https://ujhjj.com/g/nljx8wkictf977a19decef57333d53/",
+        "backup": null,
+        "official": "https://www.sitpack.com/"
+      },
+      "expect": [
+        "sitpack"
+      ],
+      "active": "primary",
+      "fails": {
+        "primary": 0,
+        "backup": 0,
+        "official": 0
+      },
+      "last_check": null,
+      "last_result": {}
+    }
+  ]
+}

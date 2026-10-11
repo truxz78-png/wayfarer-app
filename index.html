@@ -200,6 +200,46 @@
   .disclosure p{
     margin: 8px 0 0;
   }
+  .partner-list{
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+  }
+  .partner-list li{ margin: 0 0 10px; }
+  .partner-link{
+    display: block;
+    text-decoration: none;
+    color: var(--parchment);
+    background: rgba(237,230,214,0.06);
+    border: 1px solid rgba(237,230,214,0.14);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .partner-link:active{ background: rgba(255,178,56,0.12); }
+  .partner-link:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
+  .partner-name{
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    color: #FBF8F0;
+  }
+  .partner-desc{
+    display: block;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--parchment-dim);
+    margin-top: 2px;
+  }
+  .partner-ext{
+    display: block;
+    font-size: 11px;
+    color: rgba(237,230,214,0.6);
+    margin-top: 4px;
+  }
+  .links-offline{
+    font-size: 13.5px;
+    color: var(--parchment-dim);
+  }
   .guides-note{
     font-size: 13px;
     line-height: 1.55;
@@ -380,6 +420,7 @@
       <a href="#regions">By region</a>
       <a href="#trip-prep">Trip prep</a>
       <a href="#quick-book">Quick book</a>
+      <a href="#partners">More partners</a>
     </nav>
 
     <div class="guides" id="guides">
@@ -490,10 +531,16 @@
       <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick book</h2>
       <p class="quickbook-intro">Already know what you need? Jump straight to our partners, in the order most trips need it.</p>
       <details class="disclosure">
-        <summary>Links 1–6 are affiliate links. <span class="more more-closed">About these links</span><span class="more more-open">Hide</span></summary>
-        <p>Each button opens a partner's website. Wayfarer does not sell anything itself — bookings, prices, and customer support are handled by each partner. We may earn a small commission at no extra cost to you.</p>
+        <summary>Most partner links are affiliate links. <span class="more more-closed">About these links</span><span class="more more-open">Hide</span></summary>
+        <p>Each button opens a partner's website. Wayfarer does not sell anything itself — bookings, prices, and customer support are handled by each partner. We may earn a small commission at no extra cost to you. The embassy directory is not an affiliate link.</p>
       </details>
       <div class="journey" id="journey" style="margin-top:24px;"></div>
+    </div>
+
+    <div class="guides section-divider" id="partners">
+      <h2>More travel partners</h2>
+      <p class="guides-intro">More booking options, grouped by what you need. Each link opens the partner's own website.</p>
+      <div id="partner-groups"></div>
     </div>
 
     <footer>
@@ -503,80 +550,69 @@
   </div>
 
 <script>
-  // Quick book buttons. Each sub line describes what the partner site really shows.
-  const STEPS = [
-    {
-      num: 1,
-      title: "Plan the trip",
-      sub: "Compare flight options across airlines on KAYAK",
-      icon: "🧭",
-      url: "https://kayak.stay22.com/wayfarer/Q1-34cILRy"
-    },
-    {
-      num: 2,
-      title: "Book the flight",
-      sub: "Search low fares worldwide on Aviasales",
-      icon: "✈️",
-      url: "https://aviasales.tpx.lu/ziTiexVw"
-    },
-    {
-      num: 3,
-      title: "Reserve the stay",
-      sub: "Search hotels and stays on Booking.com",
-      icon: "🏨",
-      url: "https://booking.stay22.com/wayfarer/kQplpJhK-1"
-    },
-    {
-      num: 4,
-      title: "Explore & taste",
-      sub: "Tours, audio guides and experiences on WeGoTrip",
-      icon: "🍽️",
-      url: "https://wegotrip.tpx.lu/pARJRvWI"
-    },
-    {
-      num: 5,
-      title: "Get connected",
-      sub: "Travel eSIM data plans on Airalo",
-      icon: "📶",
-      url: "https://airalo.tpx.lu/1ZoNqig8"
-    },
-    {
-      num: 6,
-      title: "Protect the trip",
-      sub: "Medical and emergency travel insurance from SafetyWing",
-      icon: "🛡️",
-      url: "https://safetywing.com/nomad-insurance?referenceID=26592172&utm_source=26592172&utm_medium=Ambassador"
-    },
-    {
-      num: 7,
-      title: "Find the embassy",
-      sub: "Embassy and consulate directory (not an affiliate link)",
-      icon: "🏛️",
-      embassy: true,
-      url: "https://www.embassypages.com/"
-    }
-  ];
-
-  const journey = document.getElementById('journey');
-  STEPS.forEach(step => {
-    const a = document.createElement('a');
-    a.className = 'ticket' + (step.embassy ? ' embassy' : '');
-    a.href = step.url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.innerHTML = `
-      <div class="ticket-main">
-        <div class="step-row">
-          <span class="step-num">${step.num}</span>
-          <span class="ticket-title">${step.title}</span>
-        </div>
-        <p class="ticket-sub">${step.sub}</p>
-        <p class="ticket-ext">Opens partner site ↗</p>
-      </div>
-      <div class="ticket-stub"><span class="ticket-icon">${step.icon}</span></div>
-    `;
-    journey.appendChild(a);
-  });
+  // All partner links live in links.json (primary / backup / official).
+  // The weekly robot chooses the "active" one; the page just uses it.
+  function activeUrl(p){
+    const order = [p.active, 'primary', 'backup', 'official'];
+    for (const k of order){ if (k && p.links && p.links[k]) return p.links[k]; }
+    return null;
+  }
+  function esc(t){
+    return String(t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function renderQuick(partners){
+    const journey = document.getElementById('journey');
+    partners.filter(p => p.quick && p.enabled !== false)
+      .sort((a, b) => a.quick - b.quick)
+      .forEach(p => {
+        const url = activeUrl(p);
+        if (!url) return;
+        const a = document.createElement('a');
+        a.className = 'ticket' + (p.affiliate === false ? ' embassy' : '');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = `
+          <div class="ticket-main">
+            <div class="step-row">
+              <span class="step-num">${p.quick}</span>
+              <span class="ticket-title">${esc(p.title)}</span>
+            </div>
+            <p class="ticket-sub">${esc(p.desc)}</p>
+            <p class="ticket-ext">Opens partner site ↗</p>
+          </div>
+          <div class="ticket-stub"><span class="ticket-icon">${esc(p.icon || '')}</span></div>
+        `;
+        journey.appendChild(a);
+      });
+  }
+  function renderGroups(data){
+    const box = document.getElementById('partner-groups');
+    (data.categories || []).forEach(cat => {
+      const items = data.partners.filter(p => p.category === cat.id && !p.quick && p.enabled !== false && activeUrl(p));
+      if (!items.length) return;
+      const d = document.createElement('details');
+      d.className = 'guide-article';
+      d.innerHTML = `<summary><h3>${esc(cat.title)}</h3></summary>
+        <p>${esc(cat.intro || '')}</p>
+        <ul class="partner-list">${items.map(p => `
+          <li><a class="partner-link" href="${esc(activeUrl(p))}" target="_blank" rel="noopener noreferrer">
+            <span class="partner-name">${esc(p.name)}</span>
+            <span class="partner-desc">${esc(p.desc)}</span>
+            <span class="partner-ext">Opens partner site ↗</span>
+          </a></li>`).join('')}
+        </ul>`;
+      box.appendChild(d);
+    });
+  }
+  fetch('/wayfarer-app/links.json', { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => { renderQuick(data.partners || []); renderGroups(data); })
+    .catch(() => {
+      const msg = '<p class="links-offline">Partner links need an internet connection. Please reconnect and reopen the app.</p>';
+      document.getElementById('journey').innerHTML = msg;
+      document.getElementById('partner-groups').innerHTML = msg;
+    });
 
   // Each "search hotels" link in the guides opens Booking.com (via Stay22)
   // already searching its own city.

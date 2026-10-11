@@ -1,0 +1,42 @@
+name: Check partner links
+
+on:
+  schedule:
+    - cron: '17 13 * * 1'   # every Monday, 9:17 AM in the Dominican Republic
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Check every partner link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/check_links.py links.json
+
+      - name: Save results in links.json
+        run: |
+          if git diff --quiet links.json; then
+            echo "No changes"
+          else
+            git config user.name "wayfarer-link-robot"
+            git config user.email "wayfarer-link-robot@users.noreply.github.com"
+            git add links.json
+            git commit -m "Weekly link check"
+            git push
+          fi
