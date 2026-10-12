@@ -1,0 +1,29 @@
+name: Check translation
+
+on:
+  schedule:
+    - cron: '23 13 * * *'   # every day, 9:23 AM in the Dominican Republic
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Check automatic translation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/check_translation.py
