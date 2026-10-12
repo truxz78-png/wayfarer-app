@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wayfarer — Your Global Trip Kit</title>
+<meta name="google" content="notranslate">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -597,7 +598,7 @@
         <p>${esc(cat.intro || '')}</p>
         <ul class="partner-list">${items.map(p => `
           <li><a class="partner-link" href="${esc(activeUrl(p))}" target="_blank" rel="noopener noreferrer">
-            <span class="partner-name">${esc(p.name)}</span>
+            <span class="partner-name" translate="no">${esc(p.name)}</span>
             <span class="partner-desc">${esc(p.desc)}</span>
             <span class="partner-ext">Opens partner site ↗</span>
           </a></li>`).join('')}
@@ -607,7 +608,10 @@
   }
   fetch('/wayfarer-app/links.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(data => { renderQuick(data.partners || []); renderGroups(data); })
+    .then(data => {
+      if (window.wayfarerAddBrands) window.wayfarerAddBrands((data.partners || []).map(p => p.name));
+      renderQuick(data.partners || []); renderGroups(data);
+    })
     .catch(() => {
       const msg = '<p class="links-offline">Partner links need an internet connection. Please reconnect and reopen the app.</p>';
       document.getElementById('journey').innerHTML = msg;
@@ -699,5 +703,6 @@
   }
 </script>
 
+<script src="/wayfarer-app/translate.js"></script>
 </body>
 </html>
