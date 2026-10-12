@@ -63,8 +63,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      },
       "quick": 1,
       "title": "Plan the trip",
       "icon": "🧭"
@@ -90,8 +93,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      },
       "quick": 2,
       "title": "Book the flight",
       "icon": "✈️"
@@ -117,8 +123,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 202",
+        "official": "ok: HTTP 202"
+      },
       "quick": 3,
       "title": "Reserve the stay",
       "icon": "🏨"
@@ -144,8 +153,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      },
       "quick": 4,
       "title": "Explore & taste",
       "icon": "🍽️"
@@ -171,8 +183,12 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "backup": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      },
       "quick": 5,
       "title": "Get connected",
       "icon": "📶"
@@ -198,8 +214,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      },
       "quick": 6,
       "title": "Protect the trip",
       "icon": "🛡️"
@@ -225,8 +244,10 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {},
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)"
+      },
       "quick": 7,
       "title": "Find the embassy",
       "icon": "🏛️"
@@ -252,8 +273,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "airpaz",
@@ -276,8 +300,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "official": "unclear: HTTP 403 (site blocks robots)"
+      }
     },
     {
       "id": "tiket",
@@ -300,8 +327,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "official": "unclear: HTTP 403 (site blocks robots)"
+      }
     },
     {
       "id": "cheapvuelos",
@@ -324,8 +354,10 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200"
+      }
     },
     {
       "id": "etihad",
@@ -344,12 +376,15 @@
       ],
       "active": "primary",
       "fails": {
-        "primary": 0,
+        "primary": 1,
         "backup": 0,
-        "official": 0
+        "official": 1
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "fail: no connection (ReadTimeout)",
+        "official": "fail: no connection (ReadTimeout)"
+      }
     },
     {
       "id": "singapore",
@@ -372,8 +407,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "eurowings",
@@ -396,8 +434,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "official": "unclear: HTTP 403 (site blocks robots)"
+      }
     },
     {
       "id": "asaptickets",
@@ -445,8 +486,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "zenhotels",
@@ -469,8 +513,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "accorplus",
@@ -493,8 +540,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "klook",
@@ -517,8 +567,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "official": "unclear: HTTP 403 (site blocks robots)"
+      }
     },
     {
       "id": "kkday",
@@ -541,8 +594,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "official": "unclear: HTTP 403 (site blocks robots)"
+      }
     },
     {
       "id": "tiqets",
@@ -565,8 +621,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "raynatours",
@@ -589,8 +648,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "avitovip",
@@ -613,8 +675,10 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200"
+      }
     },
     {
       "id": "hungryhub",
@@ -637,8 +701,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     },
     {
       "id": "sitpack",
@@ -661,8 +728,11 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": null,
-      "last_result": {}
+      "last_check": "2026-10-12 21:46 UTC",
+      "last_result": {
+        "primary": "ok: HTTP 200",
+        "official": "ok: HTTP 200"
+      }
     }
   ]
 }
