@@ -10,8 +10,8 @@ android {
         applicationId "com.wayfarertravel.app"
         minSdk 21
         targetSdk 36
-        versionCode 3
-        versionName "1.5"
+        versionCode 4
+        versionName "1.6"
     }
 
     signingConfigs {
@@ -32,5 +32,6 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.browser:browser:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
 }

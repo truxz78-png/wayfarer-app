@@ -1,5 +1,7 @@
 package com.wayfarertravel.app;
 
+import androidx.browser.customtabs.CustomTabColorSchemeParams;
+import androidx.browser.customtabs.CustomTabsIntent;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             if (SITE_HOST.equals(uri.getHost())) {
                 return false; // nuestro sitio: se queda dentro de la app
             }
-            openExternal(new Intent(Intent.ACTION_VIEW, uri));
+            openPartner(uri);
             return true;
         }
 
@@ -83,6 +85,20 @@ public class MainActivity extends AppCompatActivity {
 
         openExternal(new Intent(Intent.ACTION_VIEW, uri)); // tel:, mailto:, etc.
         return true;
+    }
+
+    private void openPartner(Uri uri) {
+        try {
+            CustomTabColorSchemeParams colors = new CustomTabColorSchemeParams.Builder()
+                    .setToolbarColor(0xFF0E2233).build();
+            CustomTabsIntent tab = new CustomTabsIntent.Builder()
+                    .setDefaultColorSchemeParams(colors)
+                    .setShowTitle(true)
+                    .build();
+            tab.launchUrl(this, uri);
+        } catch (Exception e) {
+            openExternal(new Intent(Intent.ACTION_VIEW, uri));
+        }
     }
 
     private boolean openExternal(Intent intent) {
