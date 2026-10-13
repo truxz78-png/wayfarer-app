@@ -44,6 +44,8 @@ def check(url, expect):
         r = requests.get(url, headers={"User-Agent": UA,
                                        "Accept-Language": "en-US,en;q=0.9"},
                          timeout=25, allow_redirects=True)
+    except requests.Timeout as e:
+        return "unclear", f"slow or ignores robots ({type(e).__name__})", ""
     except requests.RequestException as e:
         return "fail", f"no connection ({type(e).__name__})", ""
     final = r.url
