@@ -420,7 +420,7 @@
       <a href="#guides">Hotel guides</a>
       <a href="#regions">By region</a>
       <a href="#trip-prep">Trip prep</a>
-      <a href="#quick-book">Quick book</a>
+      <a href="#quick-book">Quick booking</a>
       <a href="#partners">More partners</a>
     </nav>
 
@@ -529,7 +529,7 @@
     </div>
 
     <div class="section-divider" id="quick-book">
-      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick book</h2>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#FBF8F0;margin:0 0 6px;">Quick booking</h2>
       <p class="quickbook-intro">Already know what you need? Jump straight to our partners, in the order most trips need it.</p>
       <details class="disclosure">
         <summary>Most partner links are affiliate links. <span class="more more-closed">About these links</span><span class="more more-open">Hide</span></summary>
@@ -539,7 +539,7 @@
     </div>
 
     <div class="guides section-divider" id="partners">
-      <h2>More travel partners</h2>
+      <h2>More booking partners</h2>
       <p class="guides-intro">More booking options, grouped by what you need. Each link opens the partner's own website.</p>
       <div id="partner-groups"></div>
     </div>
@@ -580,7 +580,7 @@
               <span class="ticket-title">${esc(p.title)}</span>
             </div>
             <p class="ticket-sub">${esc(p.desc)}</p>
-            <p class="ticket-ext">Opens partner site ↗</p>
+            <p class="ticket-ext">Opens partner website ↗</p>
           </div>
           <div class="ticket-stub"><span class="ticket-icon">${esc(p.icon || '')}</span></div>
         `;
@@ -600,7 +600,7 @@
           <li><a class="partner-link" href="${esc(activeUrl(p))}" target="_blank" rel="noopener noreferrer">
             <span class="partner-name" translate="no">${esc(p.name)}</span>
             <span class="partner-desc">${esc(p.desc)}</span>
-            <span class="partner-ext">Opens partner site ↗</span>
+            <span class="partner-ext">Opens partner website ↗</span>
           </a></li>`).join('')}
         </ul>`;
       box.appendChild(d);
