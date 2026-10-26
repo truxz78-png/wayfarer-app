@@ -303,10 +303,12 @@
   }
   .city-index a:active{ background: rgba(255,178,56,0.15); }
   .guide-cta{
-    display: block; margin: 4px 0 16px; padding: 12px 16px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 4px 0 16px; padding: 12px 16px; border-radius: 12px;
     background: var(--gold); color: var(--navy-deep); font-weight: 700;
     text-align: center; text-decoration: none;
   }
+  .guide-cta .cta-arrow{ flex: none; }
   .guide-cta:active{ transform: scale(0.985); }
   .guide-cta:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; }
   .guides{
@@ -663,7 +665,13 @@
       cta.className = 'guide-cta';
       cta.href = link.href; cta.target = '_blank'; cta.rel = 'noopener noreferrer';
       const t = link.textContent.trim();
-      cta.textContent = t.charAt(0).toUpperCase() + t.slice(1) + ' ↗';
+      const label = document.createElement('span');
+      label.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+      const arrow = document.createElement('span');
+      arrow.className = 'cta-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '↗';
+      cta.append(label, arrow);
       para.after(cta);
     }
     // One chip per city at the top of the guides.
@@ -681,6 +689,10 @@
       });
       index.appendChild(chip);
     }
+    // The button below is the only link: the sentence stays as plain text.
+    const plain = document.createElement('span');
+    plain.textContent = link.textContent;
+    link.replaceWith(plain);
   });
 </script>
 
