@@ -63,7 +63,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -93,7 +93,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -123,7 +123,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 202",
         "official": "ok: HTTP 202"
@@ -153,7 +153,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -183,7 +183,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "backup": "ok: HTTP 200",
@@ -214,7 +214,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -244,7 +244,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: HTTP 403 (site blocks robots)"
       },
@@ -273,7 +273,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -300,9 +300,9 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
-        "primary": "unclear: HTTP 403 (site blocks robots)",
+        "primary": "ok: HTTP 200",
         "official": "unclear: HTTP 403 (site blocks robots)"
       }
     },
@@ -327,7 +327,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: HTTP 403 (site blocks robots)",
         "official": "unclear: HTTP 403 (site blocks robots)"
@@ -354,7 +354,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200"
       }
@@ -380,7 +380,7 @@
         "backup": 0,
         "official": 1
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: slow or ignores robots (ReadTimeout)",
         "official": "unclear: slow or ignores robots (ReadTimeout)"
@@ -407,7 +407,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -434,7 +434,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: HTTP 403 (site blocks robots)",
         "official": "unclear: HTTP 403 (site blocks robots)"
@@ -486,7 +486,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -513,7 +513,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -540,7 +540,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -567,7 +567,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: HTTP 403 (site blocks robots)",
         "official": "unclear: HTTP 403 (site blocks robots)"
@@ -594,7 +594,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: HTTP 403 (site blocks robots)",
         "official": "unclear: HTTP 403 (site blocks robots)"
@@ -621,7 +621,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -648,7 +648,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -675,7 +675,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200"
       }
@@ -701,7 +701,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
@@ -728,7 +728,7 @@
         "backup": 0,
         "official": 0
       },
-      "last_check": "2026-10-19 19:22 UTC",
+      "last_check": "2026-10-26 19:23 UTC",
       "last_result": {
         "primary": "unclear: stayed on redirect page ujhjj.com",
         "official": "ok: HTTP 200"
