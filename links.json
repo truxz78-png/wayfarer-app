@@ -392,7 +392,7 @@
       "category": "flights",
       "desc": "Book Singapore Airlines flights directly with the airline",
       "affiliate": true,
-      "enabled": true,
+      "enabled": false,
       "links": {
         "primary": "https://invl.me/clo3a50",
         "backup": null,
@@ -411,7 +411,8 @@
       "last_result": {
         "primary": "ok: HTTP 200",
         "official": "ok: HTTP 200"
-      }
+      },
+      "note": "Paused by Involve Asia on 2026-11-02 (no tracking, no commissions). Re-enable when the offer is active again."
     },
     {
       "id": "eurowings",
