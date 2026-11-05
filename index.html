@@ -562,7 +562,7 @@
 
     <footer id="footer">
       <p>Wayfarer is an independent travel guide with affiliate links. Booking through these links may earn a small commission at no extra cost to you — it's how this kit stays free. Partner names and trademarks belong to their owners; partners do not endorse Wayfarer.</p>
-      <p><a href="/wayfarer-app/privacy.html" id="privacy-link">Privacy policy</a> &nbsp;|&nbsp; <a href="mailto:hpind77@gmail.com?subject=Wayfarer%20app">Contact</a></p>
+      <p><a href="/wayfarer-app/privacy.html" id="privacy-link">Privacy policy</a> &nbsp;|&nbsp; <a href="/wayfarer-app/terms.html" id="terms-link">Terms of service</a> &nbsp;|&nbsp; <a href="mailto:hpind77@gmail.com?subject=Wayfarer%20app">Contact</a></p>
     </footer>
   </div>
 
@@ -644,9 +644,11 @@
     });
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  const privacyLink = document.getElementById('privacy-link');
-  if (privacyLink) privacyLink.addEventListener('click', () => {
-    try { sessionStorage.setItem('wf_return', 'footer'); } catch (e) {}
+  ['privacy-link', 'terms-link'].forEach(id => {
+    const l = document.getElementById(id);
+    if (l) l.addEventListener('click', () => {
+      try { sessionStorage.setItem('wf_return', 'footer'); } catch (e) {}
+    });
   });
 
   // Each "search hotels" link in the guides opens Booking.com (via Stay22)
