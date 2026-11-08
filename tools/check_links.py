@@ -9,8 +9,9 @@ Results per link:
   ok       - the link ends on the partner's own site (expected domain).
   unclear  - the site blocked the robot, or the link stayed on the affiliate
              network's redirect page. Counters are NOT changed (no switch).
-  fail     - real failure: no connection, 404/410/5xx, or it ends on a site
-             that is not the partner's.
+  unclear  - also: slow site (timeout) or a 5xx server error. Never switched.
+  fail     - real failure: the site does not exist (no connection),
+             404/410, or it ends on a site that is not the partner's.
 
 A link is "down" after `fails_to_switch` failures in a row (default 2).
 Order of preference: primary, backup, official. When the primary works again
@@ -53,8 +54,10 @@ def check(url, expect):
     code = r.status_code
     if code in BLOCK_CODES:
         return "unclear", f"HTTP {code} (site blocks robots)", final
-    if code in (404, 410) or code >= 500:
+    if code in (404, 410):
         return "fail", f"HTTP {code}", final
+    if code >= 500:
+        return "unclear", f"HTTP {code} (partner server busy or down for a while)", final
     if code >= 400:
         return "unclear", f"HTTP {code}", final
     if any(e.lower() in final.lower() for e in expect):

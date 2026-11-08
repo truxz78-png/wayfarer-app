@@ -376,9 +376,9 @@
       ],
       "active": "primary",
       "fails": {
-        "primary": 1,
+        "primary": 0,
         "backup": 0,
-        "official": 1
+        "official": 0
       },
       "last_check": "2026-11-02 22:22 UTC",
       "last_result": {
