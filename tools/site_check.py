@@ -19,6 +19,8 @@ PAGES = {
     "": ["translate.js", "privacy.html", "terms.html", "mailto:hpind77@gmail.com"],
     "privacy.html": ["translate.js", "back-link", "terms.html", "mailto:hpind77@gmail.com"],
     "terms.html": ["translate.js", "back-link", "privacy.html", "mailto:hpind77@gmail.com"],
+    "app.html": ["translate.js", "id=com.wayfarertravel.app", "privacy.html", "terms.html"],
+    "sitemap.xml": ["app.html", "privacy.html", "terms.html"],
 }
 TITLE = "Site problem"
 LABEL = "site-check"
