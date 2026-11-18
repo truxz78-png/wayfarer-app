@@ -42,7 +42,10 @@
   }
   header{
     margin-bottom: 32px;
+    position: relative;
   }
+  .lang-slot{ position: absolute; top: -6px; right: 0; }
+  header .kicker{ padding-right: 92px; }
   .kicker{
     font-size: 13px;
     letter-spacing: 0.02em;
@@ -274,20 +277,19 @@
     padding: 10px 20px;
     border-bottom: 1px solid rgba(237,230,214,0.15);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
   }
   .section-nav::-webkit-scrollbar{ display: none; }
   .section-nav a{
-    flex-shrink: 0;
     font-size: 13.5px;
     font-weight: 600;
     color: var(--gold);
     text-decoration: none;
     border: 1px solid rgba(255,178,56,0.45);
     border-radius: 999px;
-    padding: 7px 14px;
+    padding: 6px 13px;
     white-space: nowrap;
   }
   .section-nav a:active{ background: rgba(255,178,56,0.15); }
@@ -297,8 +299,8 @@
     color: var(--navy-deep);
   }
   .section-nav a:focus-visible{ outline: 2px solid var(--gold); outline-offset: 2px; }
-  [id]{ scroll-margin-top: 70px; }
-  .city-index{ display:flex; flex-wrap:wrap; gap:8px; margin: 4px 0 18px; }
+  [id]{ scroll-margin-top: calc(var(--navh, 70px) + 12px); }
+  .city-index{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin: 4px 0 18px; }
   .city-index a{
     font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none;
     border: 1px solid rgba(255,178,56,0.45); border-radius: 999px; padding: 6px 12px;
@@ -425,6 +427,7 @@
 <body>
   <div class="wrap">
     <header>
+      <div class="lang-slot" data-lang-slot></div>
       <p class="kicker">Travel guides & booking tools</p>
       <div class="title-row">
         <span class="globe">🌍</span>
@@ -741,14 +744,10 @@
         t.classList.toggle('active', on);
         if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
       });
-      const tab = tabs[i];
-      if (tab) {
-        const left = tab.offsetLeft - (nav.clientWidth - tab.offsetWidth) / 2;
-        nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
-      }
     }
     function update(){
       const doc = document.documentElement;
+      doc.style.setProperty('--navh', nav.offsetHeight + 'px');
       if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) { setActive(tabs.length - 1); return; }
       const line = nav.offsetHeight + 20;
       let current = -1;

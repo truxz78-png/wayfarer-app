@@ -1,4 +1,4 @@
-const CACHE_NAME = "wayfarer-v2";
+const CACHE_NAME = "wayfarer-v3";
 const urlsToCache = [
   "/wayfarer-app/",
   "/wayfarer-app/index.html",

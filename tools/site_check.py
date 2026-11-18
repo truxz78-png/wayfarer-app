@@ -16,10 +16,10 @@ import requests
 
 BASE = os.environ.get("SITE_BASE", "https://truxz78-png.github.io/wayfarer-app/")
 PAGES = {
-    "": ["translate.js", "privacy.html", "terms.html", "mailto:hpind77@gmail.com"],
-    "privacy.html": ["translate.js", "back-link", "terms.html", "mailto:hpind77@gmail.com"],
-    "terms.html": ["translate.js", "back-link", "privacy.html", "mailto:hpind77@gmail.com"],
-    "app.html": ["translate.js", "id=com.wayfarertravel.app", "privacy.html", "terms.html"],
+    "": ["translate.js", "data-lang-slot", "privacy.html", "terms.html", "mailto:hpind77@gmail.com"],
+    "privacy.html": ["translate.js", "data-lang-slot", "back-link", "terms.html", "mailto:hpind77@gmail.com"],
+    "terms.html": ["translate.js", "data-lang-slot", "back-link", "privacy.html", "mailto:hpind77@gmail.com"],
+    "app.html": ["translate.js", "data-lang-slot", "id=com.wayfarertravel.app", "privacy.html", "terms.html"],
     "sitemap.xml": ["app.html", "privacy.html", "terms.html"],
 }
 TITLE = "Site problem"
@@ -43,7 +43,7 @@ def run_checks():
                 problems.append(f"{name}: missing '{item}'")
     try:
         r = requests.get(BASE + "translate.js", headers={"User-Agent": "Mozilla/5.0"}, timeout=25)
-        if r.status_code != 200 or "translate.googleapis.com" not in r.text:
+        if r.status_code != 200 or "translate.googleapis.com" not in r.text or "wf_lang" not in r.text:
             problems.append(f"translate.js: HTTP {r.status_code} or no translator endpoint")
     except Exception as e:
         problems.append(f"translate.js: not reachable ({type(e).__name__})")
