@@ -208,10 +208,12 @@
         '.wf-lm .hd{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;' +
         'border-bottom:1px solid rgba(237,230,214,.15);font-weight:700;color:#FFB238;font-size:16px}' +
         '.wf-lm .hd button{border:0;background:none;font-size:26px;line-height:1;cursor:pointer;color:#EDE6D6}' +
-        '.wf-lm ul{list-style:none;margin:0;padding:6px 0;overflow-y:auto}' +
-        '.wf-lm li button{width:100%;text-align:start;border:0;background:none;padding:12px 18px;font-size:16px;' +
-        'cursor:pointer;color:#EDE6D6;font-family:inherit}' +
-        '.wf-lm li button.cur{background:rgba(255,178,56,.18);color:#FFB238;font-weight:700}';
+        '.wf-lm ul{list-style:none;margin:0;padding:10px 12px 16px;overflow-y:auto;' +
+        'display:grid;grid-template-columns:1fr 1fr;gap:6px}' +
+        '.wf-lm li button{width:100%;text-align:center;unicode-bidi:plaintext;border:1px solid rgba(237,230,214,.12);' +
+        'border-radius:10px;background:rgba(255,255,255,.03);padding:11px 12px;font-size:15.5px;' +
+        'cursor:pointer;color:#EDE6D6;font-family:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+        '.wf-lm li button.cur{background:rgba(255,178,56,.18);border-color:#FFB238;color:#FFB238;font-weight:700}';
       document.head.appendChild(css);
 
       var code = LANG === 'iw' ? 'HE' : LANG.split('-')[0].toUpperCase();
@@ -235,7 +237,6 @@
         item.type = 'button';
         item.textContent = l[1];
         item.setAttribute('lang', l[0] === 'iw' ? 'he' : l[0]);
-        if (RTL[l[0]]) item.setAttribute('dir', 'rtl');
         if (l[0] === LANG) item.className = 'cur';
         item.addEventListener('click', function () {
           storeLang(l[0]);
